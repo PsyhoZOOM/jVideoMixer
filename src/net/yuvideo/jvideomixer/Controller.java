@@ -63,12 +63,15 @@ public class Controller implements Initializable {
 
 
 
+
         slZoom.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-                System.out.println(newValue);
-                vSnapShot.setScaleX(slZoom.getValue() / 10);
-                vSnapShot.setScaleY(slZoom.getValue() / 10);
+                Double val = slZoom.getValue();
+                val /= 10;
+                vSnapShot.setScaleX(val);
+                vSnapShot.setScaleY(val);
+                System.out.println(val);
             }
         });
 
